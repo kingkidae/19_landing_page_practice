@@ -359,6 +359,32 @@ function setMinStartDate() {
   $("#startDate").min = local.toISOString().slice(0, 10);
 }
 
+// 이용약관 · 개인정보처리방침 팝업
+function setupDialogs() {
+  $$("[data-dialog]").forEach((button) =>
+    button.addEventListener("click", () => {
+      const dialog = document.getElementById(button.dataset.dialog);
+      dialog.showModal();
+      dialog.querySelector(".legal-body").scrollTop = 0;
+    })
+  );
+  // 바깥(배경) 클릭 시 닫기
+  $$(".legal-dialog").forEach((dialog) =>
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) dialog.close();
+    })
+  );
+}
+
+// 맨 위로 버튼: 한 화면 이상 내려가면 표시
+function setupBackToTop() {
+  const button = $("#backToTop");
+  const toggle = () => button.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.8);
+  window.addEventListener("scroll", toggle, { passive: true });
+  button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  toggle();
+}
+
 function setupReveal() {
   const targets = $$(".reveal");
   if (!("IntersectionObserver" in window)) {
@@ -384,5 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
   bindEvents();
   setMinStartDate();
   setupReveal();
+  setupDialogs();
+  setupBackToTop();
   render();
 });

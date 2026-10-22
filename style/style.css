@@ -21,6 +21,8 @@
   --radius: 18px;
   --shadow: 0 18px 40px -22px rgba(58, 42, 31, 0.45);
   --header-h: 76px;
+  --container: 1180px;
+  --gutter: clamp(20px, 4vw, 48px);
 }
 
 /* ===== Base ===== */
@@ -73,7 +75,7 @@ p {
 }
 
 .container {
-  width: min(1180px, 100% - 40px);
+  width: min(var(--container), 100% - 2 * var(--gutter));
   margin-inline: auto;
 }
 
@@ -501,7 +503,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 max(20px, calc((100% - 1180px) / 2)) 72px;
+  padding: 0 max(var(--gutter), calc((100% - var(--container)) / 2)) 72px;
   background: linear-gradient(180deg, rgba(36, 25, 18, 0) 35%, rgba(36, 25, 18, 0.75) 100%);
 }
 
@@ -1211,12 +1213,11 @@ legend {
   color: var(--linen);
 }
 
-.footer-inner {
+.footer-top {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
+  grid-template-columns: 1.5fr 0.8fr 0.9fr 1.3fr;
   gap: 48px;
-  padding: 48px 0 56px;
+  padding: 64px 0 56px;
 }
 
 .brand-footer .brand-text strong {
@@ -1227,31 +1228,237 @@ legend {
   color: var(--camel);
 }
 
+.footer-brand p {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: rgba(232, 216, 193, 0.7);
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.footer-col h3 {
+  margin-bottom: 8px;
+  font-family: var(--serif-en);
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: var(--camel);
+}
+
+.footer-col a,
+.link-btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--linen);
+  font: inherit;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover,
+.link-btn:hover {
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .company {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px 28px;
+  flex-direction: column;
+  gap: 8px;
   margin: 0;
-  font-size: 0.88rem;
 }
 
 .company div {
   display: flex;
-  gap: 8px;
+  gap: 12px;
 }
 
 .company dt {
-  color: var(--camel);
+  min-width: 3.4em;
+  color: rgba(232, 216, 193, 0.55);
 }
 
 .company dd {
   margin: 0;
 }
 
-.credits {
+.footer-bottom {
+  border-top: 1px solid rgba(232, 216, 193, 0.14);
   font-size: 0.78rem;
   color: rgba(232, 216, 193, 0.55);
-  text-align: right;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 20px 0;
+}
+
+.footer-bottom-inner .to-top {
+  margin-left: auto;
+  color: var(--camel);
+}
+
+.footer-bottom-inner .to-top:hover {
+  color: var(--white);
+}
+
+/* ===== FAQ ===== */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.faq-grid .section-head {
+  position: sticky;
+  top: calc(var(--header-h) + 32px);
+  margin-bottom: 0;
+}
+
+.faq-cta {
+  margin-top: 24px;
+}
+
+.faq-list details {
+  border-bottom: 1px solid rgba(138, 100, 64, 0.25);
+}
+
+.faq-list details:first-child {
+  border-top: 1px solid rgba(138, 100, 64, 0.25);
+}
+
+.faq-list summary {
+  position: relative;
+  padding: 22px 48px 22px 0;
+  font-family: var(--serif-ko);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--ink);
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::before {
+  content: "Q";
+  margin-right: 14px;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--camel-deep);
+}
+
+.faq-list summary::after {
+  content: "+";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--camel-deep);
+  transition: transform 0.25s;
+}
+
+.faq-list details[open] summary::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-list summary:focus-visible {
+  outline: 3px solid var(--camel);
+  outline-offset: 2px;
+}
+
+.faq-list details p {
+  padding: 0 48px 24px 34px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* ===== Legal dialogs ===== */
+.legal-dialog {
+  width: min(680px, calc(100% - 32px));
+  max-height: min(82vh, 760px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--cream);
+  color: var(--espresso);
+  box-shadow: 0 30px 80px -20px rgba(36, 25, 18, 0.6);
+}
+
+.legal-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.legal-dialog::backdrop {
+  background: rgba(36, 25, 18, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+.legal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--linen);
+}
+
+.legal-head h2 {
+  font-size: 1.35rem;
+}
+
+.legal-head button {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--sand);
+  color: var(--espresso);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.legal-head button:hover {
+  background: var(--linen);
+}
+
+.legal-body {
+  overflow-y: auto;
+  padding: 24px 28px 32px;
+  font-size: 0.92rem;
+}
+
+.legal-date {
+  margin-bottom: 16px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.legal-body h3 {
+  margin: 26px 0 6px;
+  font-size: 1rem;
+}
+
+.legal-body p {
+  color: var(--muted);
 }
 
 /* ===== Mobile bar ===== */
@@ -1283,10 +1490,147 @@ legend {
   }
 }
 
+/* ===== Back to top ===== */
+.back-to-top {
+  position: fixed;
+  right: max(20px, 2vw);
+  bottom: max(24px, 3vh);
+  z-index: 55;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: var(--espresso);
+  color: var(--cream);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s, background-color 0.25s;
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.back-to-top:hover {
+  background: var(--burgundy);
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid var(--camel);
+  outline-offset: 3px;
+}
+
 /* ===== Responsive ===== */
+/* 큰 모니터: 콘텐츠 폭과 글자 크기를 함께 키움 */
+@media (min-width: 1600px) {
+  :root {
+    --container: 1360px;
+  }
+
+  html {
+    font-size: 106.25%;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --container: 1520px;
+  }
+
+  html {
+    font-size: 112.5%;
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    --container: 1800px;
+  }
+
+  html {
+    font-size: 137.5%;
+  }
+}
+
+/* 낮은 화면(노트북 등): 세로 여백 축소 */
+@media (min-width: 861px) and (max-height: 820px) {
+  .hero {
+    padding: 40px 0 72px;
+  }
+
+  .section {
+    padding: 96px 0;
+  }
+
+  .film {
+    height: 70vh;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-inner {
+    gap: 40px;
+  }
+
+  .brand-grid,
+  .treats-grid {
+    gap: 56px;
+  }
+
+  .faq-grid {
+    gap: 48px;
+  }
+
+  .footer-top {
+    gap: 32px;
+  }
+}
+
 @media (max-width: 1024px) {
   .site-nav {
     gap: 22px;
+  }
+
+  .size-grid {
+    gap: 18px;
+  }
+
+  .size-body {
+    padding: 20px 18px 24px;
+  }
+
+  .custom-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .order-grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 32px;
+  }
+
+  .order-form {
+    padding: 32px 28px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+
+  .footer-top .footer-col:last-child {
+    grid-column: 1 / -1;
   }
 
   .topping-list {
@@ -1364,17 +1708,38 @@ legend {
     padding: 32px 22px;
   }
 
-  .footer-inner {
+  .faq-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 32px;
   }
 
-  .credits {
-    text-align: left;
+  .faq-grid .section-head {
+    margin-bottom: 0;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 24px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
 
   .site-footer {
     padding-bottom: 72px;
+  }
+
+  .back-to-top {
+    bottom: 84px;
+    width: 46px;
+    height: 46px;
   }
 
   .mobile-bar {
