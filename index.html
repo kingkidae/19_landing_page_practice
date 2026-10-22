@@ -1,9 +1,655 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>오마카개 | 수제 애견 사료·간식 구독</title>
+    <meta
+      name="description"
+      content="셰프에게 맡기듯, 우리 아이의 한 끼를. 오마카개는 체급별 맞춤 수제 사료와 간식을 매달 문 앞까지 보내드립니다. 대구광역시 수성구 상록로 15"
+    />
+    <meta property="og:title" content="오마카개 | 수제 애견 사료·간식 구독" />
+    <meta
+      property="og:description"
+      content="체급별 맞춤 수제 사료와 간식 정기 구독"
+    />
+    <meta property="og:image" content="./images/hero-corgi-yorkie.jpg" />
+    <link rel="icon" type="image/svg+xml" href="./images/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
+    <script src="./js/main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <!-- 로고 마크 (헤더·푸터에서 재사용) -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="logo-mark" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="32" fill="#3A2A1F" />
+        <path d="M17 25C10 28 8 41 12 48c6 1 10-6 10-14z" fill="#B0814F" />
+        <path d="M47 25c7 3 9 16 5 23-6 1-10-6-10-14z" fill="#B0814F" />
+        <ellipse cx="32" cy="37" rx="13.5" ry="14.5" fill="#F3E3CB" />
+        <path
+          d="M22 22a5 5 0 0 1 4-8a6 6 0 0 1 12 0a5 5 0 0 1 4 8z"
+          fill="#FFFFFF"
+        />
+        <rect
+          x="22"
+          y="20.5"
+          width="20"
+          height="4.5"
+          rx="1.2"
+          fill="#FFFFFF"
+          stroke="#3A2A1F"
+          stroke-width=".8"
+        />
+        <circle cx="27" cy="36" r="1.9" fill="#3A2A1F" />
+        <circle cx="37" cy="36" r="1.9" fill="#3A2A1F" />
+        <ellipse cx="32" cy="42" rx="3" ry="2.2" fill="#3A2A1F" />
+        <path
+          d="M32 44.2v2.3M29 47.5c1.6 1.4 4.4 1.4 6 0"
+          fill="none"
+          stroke="#3A2A1F"
+          stroke-width="1.4"
+          stroke-linecap="round"
+        />
+      </symbol>
+    </svg>
+
+    <!-- 헤더 -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#top" class="brand" aria-label="오마카개 홈">
+          <svg class="brand-mark" aria-hidden="true">
+            <use href="#logo-mark" />
+          </svg>
+          <span class="brand-text">
+            <strong>오마카개</strong>
+            <small>OMAKAGAE</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="주요 메뉴">
+          <a href="#brand">브랜드</a>
+          <a href="#size">사이즈</a>
+          <a href="#custom">맞춤 사료</a>
+          <a href="#treats">간식</a>
+        </nav>
+        <a href="#order" class="btn btn-dark btn-sm">구독 신청</a>
+      </div>
+      <div class="check-band" aria-hidden="true"></div>
+    </header>
+
+    <main id="top">
+      <!-- 히어로 -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Handmade in Daegu · Since 2026</p>
+            <h1>셰프에게 맡기듯,<br />우리 아이의 <em>한 끼</em>를.</h1>
+            <p class="lead">
+              오마카개는 대구 수성구 주방에서 매일 소량으로 빚은 수제 사료와
+              간식을 아이의 체급과 입맛에 맞춰 매달 문 앞까지 보내드립니다.
+            </p>
+            <div class="hero-actions">
+              <a href="#size" class="btn btn-primary">맞춤 구독 설계하기</a>
+              <a href="#film" class="btn btn-ghost">브랜드 필름 보기</a>
+            </div>
+            <ul class="hero-points">
+              <li><strong>3</strong><span>체급별 정량 설계</span></li>
+              <li><strong>9</strong><span>선택 가능한 토핑 식재료</span></li>
+              <li><strong>30</strong><span>일분 월 1회 배송</span></li>
+            </ul>
+          </div>
+          <figure class="hero-visual reveal">
+            <img
+              src="./images/hero-corgi-yorkie.jpg"
+              alt="노을 진 흙길을 함께 달리는 웰시코기와 요크셔테리어"
+            />
+            <figcaption class="hero-badge">
+              <span>Today's Omakase</span>
+              닭가슴살 · 단호박 · 블루베리
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 브랜드 -->
+      <section id="brand" class="section">
+        <div class="container brand-grid">
+          <figure class="brand-photo reveal">
+            <img
+              src="./images/about-aussie.jpg"
+              alt="바닷가에서 웃고 있는 오스트레일리안 셰퍼드"
+              loading="lazy"
+            />
+          </figure>
+          <div class="brand-copy reveal">
+            <p class="eyebrow">Our Promise</p>
+            <h2>정해진 메뉴 대신,<br />아이에게 꼭 맞는 코스를.</h2>
+            <p>
+              ‘오마카세’처럼 오늘 가장 좋은 재료를 골라, 우리 아이의 체급과 필요
+              열량에 맞게 한 그릇을 설계합니다. 공장식 대량 생산이 아닌, 손으로
+              만드는 작은 배치만 고집합니다.
+            </p>
+            <ul class="promise-list">
+              <li>
+                <h3>사람이 먹는 등급의 식재료</h3>
+                <p>
+                  국내산 육류와 제철 채소를 주재료로, 인공 향미료·착색료를 넣지
+                  않습니다.
+                </p>
+              </li>
+              <li>
+                <h3>소량 수제 생산</h3>
+                <p>주문량만큼 매주 나눠 조리해 신선한 상태로 포장합니다.</p>
+              </li>
+              <li>
+                <h3>체급별 정량 배송</h3>
+                <p>
+                  하루 권장 열량을 기준으로 30일분을 계산해 한 달에 한 번
+                  보내드립니다.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 영상 -->
+      <section id="film" class="film" aria-label="브랜드 필름">
+        <video
+          class="film-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+        >
+          <source src="./images/hero-corgi.mp4" type="video/mp4" />
+        </video>
+        <div class="film-overlay">
+          <p class="eyebrow light">Brand Film</p>
+          <p class="film-quote">
+            들판을 달리는 힘은,<br />매일의 한 그릇에서 시작됩니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 1. 사이즈 -->
+      <section id="size" class="section">
+        <div class="container">
+          <header class="section-head reveal">
+            <p class="step">Step 01</p>
+            <h2>우리 아이의 체급을 골라주세요</h2>
+            <p>
+              성견 기준 평균 체중으로 하루 권장 열량과 한 달 배송량을
+              계산합니다.
+            </p>
+          </header>
+
+          <div class="size-grid" role="radiogroup" aria-label="강아지 사이즈">
+            <label class="size-card reveal" data-size="small">
+              <input type="radio" name="size" value="small" checked />
+              <img
+                src="./images/size-small.jpg"
+                alt="소형견 잭 러셀 테리어"
+                loading="lazy"
+              />
+              <div class="size-body">
+                <div class="size-title">
+                  <h3>소형견</h3>
+                  <span class="tag">10kg 미만</span>
+                </div>
+                <p class="breeds">
+                  말티즈 · 푸들 · 포메라니안 · 치와와 · 요크셔테리어 · 시츄 ·
+                  닥스훈트
+                </p>
+                <dl class="size-stats">
+                  <div>
+                    <dt>하루 권장 열량</dt>
+                    <dd data-field="kcal"></dd>
+                  </div>
+                  <div>
+                    <dt>하루 급여량</dt>
+                    <dd data-field="grams"></dd>
+                  </div>
+                  <div>
+                    <dt>월 배송량</dt>
+                    <dd data-field="monthly"></dd>
+                  </div>
+                </dl>
+                <p class="size-price" data-field="price"></p>
+              </div>
+            </label>
+
+            <label class="size-card reveal" data-size="medium">
+              <input type="radio" name="size" value="medium" />
+              <img
+                src="./images/size-medium.jpg"
+                alt="중형견 비글"
+                loading="lazy"
+              />
+              <div class="size-body">
+                <div class="size-title">
+                  <h3>중형견</h3>
+                  <span class="tag">10 – 25kg</span>
+                </div>
+                <p class="breeds">
+                  비글 · 웰시코기 · 시바견 · 보더콜리 · 프렌치불독 ·
+                  슈나우저(스탠다드)
+                </p>
+                <dl class="size-stats">
+                  <div>
+                    <dt>하루 권장 열량</dt>
+                    <dd data-field="kcal"></dd>
+                  </div>
+                  <div>
+                    <dt>하루 급여량</dt>
+                    <dd data-field="grams"></dd>
+                  </div>
+                  <div>
+                    <dt>월 배송량</dt>
+                    <dd data-field="monthly"></dd>
+                  </div>
+                </dl>
+                <p class="size-price" data-field="price"></p>
+              </div>
+            </label>
+
+            <label class="size-card reveal" data-size="large">
+              <input type="radio" name="size" value="large" />
+              <img
+                src="./images/size-large.jpg"
+                alt="대형견 골든 리트리버"
+                loading="lazy"
+              />
+              <div class="size-body">
+                <div class="size-title">
+                  <h3>대형견</h3>
+                  <span class="tag">25kg 이상</span>
+                </div>
+                <p class="breeds">
+                  골든 리트리버 · 래브라도 리트리버 · 진돗개 · 저먼 셰퍼드 ·
+                  사모예드 · 말라뮤트
+                </p>
+                <dl class="size-stats">
+                  <div>
+                    <dt>하루 권장 열량</dt>
+                    <dd data-field="kcal"></dd>
+                  </div>
+                  <div>
+                    <dt>하루 급여량</dt>
+                    <dd data-field="grams"></dd>
+                  </div>
+                  <div>
+                    <dt>월 배송량</dt>
+                    <dd data-field="monthly"></dd>
+                  </div>
+                </dl>
+                <p class="size-price" data-field="price"></p>
+              </div>
+            </label>
+          </div>
+          <p class="footnote">
+            * 하루 권장 열량은 중성화한 성견의 평균 체중(소형 5kg · 중형 15kg ·
+            대형 30kg)으로 계산한 값입니다 (RER 70 × 체중<sup>0.75</sup> × 1.6).
+            나이, 활동량, 건강 상태에 따라 달라질 수 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- STEP 2. 맞춤 사료 -->
+      <section id="custom" class="section section-sand">
+        <div class="container">
+          <header class="section-head reveal">
+            <p class="step">Step 02</p>
+            <h2>오늘의 토핑을 더해보세요</h2>
+            <p>
+              기본 사료에 원하는 식재료를 최대 3가지까지 올릴 수 있어요. 토핑
+              1가지당 하루 급여량의 10%만큼 더해지며, 늘어나는 열량과 영양성분을
+              바로 확인할 수 있습니다.
+            </p>
+          </header>
+
+          <div class="custom-grid">
+            <div class="reveal">
+              <div class="base-food">
+                <img
+                  src="./images/kibble-bowl.jpg"
+                  alt="그릇에 담긴 사료"
+                  loading="lazy"
+                />
+                <div>
+                  <h3>시그니처 베이스 사료</h3>
+                  <p>닭고기·현미·귀리를 오븐에 저온으로 구운 기본 사료</p>
+                  <p class="base-spec">
+                    100g당 350kcal · 단백질 26g · 지방 14g · 탄수화물 40g ·
+                    식이섬유 3g
+                  </p>
+                </div>
+              </div>
+              <p class="topping-counter">
+                <span id="toppingCount">0</span> / 3 선택
+              </p>
+              <div id="toppingList" class="topping-list"></div>
+            </div>
+
+            <aside class="nutrition-panel reveal" aria-live="polite">
+              <p class="panel-label">
+                <span id="nutriSizeLabel">소형견</span> 하루 기준
+              </p>
+              <table class="nutri-table">
+                <thead>
+                  <tr>
+                    <th scope="col">항목</th>
+                    <th scope="col">기본 사료</th>
+                    <th scope="col">토핑 추가</th>
+                    <th scope="col">합계</th>
+                  </tr>
+                </thead>
+                <tbody id="nutriBody"></tbody>
+              </table>
+              <div class="meter">
+                <div class="meter-head">
+                  <span>하루 권장 열량 대비</span>
+                  <strong id="meterPercent">100%</strong>
+                </div>
+                <div class="meter-track">
+                  <div id="meterFill" class="meter-fill"></div>
+                </div>
+                <p id="meterNote" class="meter-note"></p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3. 간식 -->
+      <section id="treats" class="section">
+        <div class="container treats-grid">
+          <figure class="treats-photo reveal">
+            <img
+              src="./images/treat-bones.jpg"
+              alt="뼈다귀 모양 수제 간식"
+              loading="lazy"
+            />
+          </figure>
+
+          <div class="reveal">
+            <header class="section-head left">
+              <p class="step">Step 03</p>
+              <h2>간식도 하루 급여량만큼</h2>
+              <p>
+                간식 크기를 고르고 하루에 몇 개를 줄지 정하면 30일분을 함께
+                보내드려요.
+              </p>
+            </header>
+
+            <div class="treat-options" role="radiogroup" aria-label="간식 크기">
+              <label class="treat-option">
+                <input type="radio" name="treatSize" value="S" checked />
+                <span class="treat-size">소</span>
+                <span class="treat-name">한입 큐브</span>
+                <span class="treat-meta">개당 3g · 10kcal</span>
+              </label>
+              <label class="treat-option">
+                <input type="radio" name="treatSize" value="M" />
+                <span class="treat-size">중</span>
+                <span class="treat-name">수제 스틱</span>
+                <span class="treat-meta">개당 7g · 23kcal</span>
+              </label>
+              <label class="treat-option">
+                <input type="radio" name="treatSize" value="L" />
+                <span class="treat-size">대</span>
+                <span class="treat-name">통살 저키</span>
+                <span class="treat-meta">개당 15g · 50kcal</span>
+              </label>
+            </div>
+
+            <div class="stepper-row">
+              <span>하루 급여 개수</span>
+              <div class="stepper">
+                <button type="button" id="treatMinus" aria-label="하나 빼기">
+                  −
+                </button>
+                <output id="treatCount">2</output>
+                <button type="button" id="treatPlus" aria-label="하나 더하기">
+                  +
+                </button>
+              </div>
+            </div>
+
+            <dl class="treat-stats">
+              <div>
+                <dt>하루 간식 열량</dt>
+                <dd id="treatKcal"></dd>
+              </div>
+              <div>
+                <dt>권장 상한 (하루 열량의 10%)</dt>
+                <dd id="treatLimit"></dd>
+              </div>
+              <div>
+                <dt>월 배송 수량</dt>
+                <dd id="treatMonthly"></dd>
+              </div>
+              <div>
+                <dt>월 간식 요금</dt>
+                <dd id="treatPrice"></dd>
+              </div>
+            </dl>
+            <p id="treatNote" class="treat-note"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 4. 구독 신청 -->
+      <section id="order" class="section section-dark">
+        <div class="container order-grid">
+          <aside class="summary reveal">
+            <p class="step light">Your Omakase</p>
+            <h2>나의 구독 구성</h2>
+            <ul id="summaryList" class="summary-list"></ul>
+            <div class="summary-total">
+              <span>월 구독료</span>
+              <strong id="summaryTotal"></strong>
+            </div>
+            <p class="summary-kcal" id="summaryKcal"></p>
+            <p class="summary-note">
+              매월 1회 냉장 배송 · 언제든 일시정지·해지 가능 · 표시 가격은 VAT
+              포함
+            </p>
+          </aside>
+
+          <form id="orderForm" class="order-form reveal" novalidate>
+            <p class="step">Step 04</p>
+            <h2>구독 신청서</h2>
+            <p class="form-intro">
+              신청서를 보내주시면 담당자가 연락드려 구성을 확인하고 첫 배송
+              일정을 안내해드립니다.
+            </p>
+
+            <fieldset>
+              <legend>보호자 정보</legend>
+              <div class="field-row">
+                <label class="field">
+                  <span>이름 <em>*</em></span>
+                  <input
+                    type="text"
+                    name="ownerName"
+                    autocomplete="name"
+                    required
+                  />
+                </label>
+                <label class="field">
+                  <span>연락처 <em>*</em></span>
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    autocomplete="tel"
+                    placeholder="010-0000-0000"
+                    pattern="01[0-9]-?[0-9]{3,4}-?[0-9]{4}"
+                    required
+                  />
+                </label>
+              </div>
+              <label class="field">
+                <span>이메일</span>
+                <input
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="선택 입력"
+                />
+              </label>
+              <label class="field">
+                <span>배송 주소 <em>*</em></span>
+                <input
+                  type="text"
+                  name="address"
+                  autocomplete="street-address"
+                  placeholder="도로명 주소"
+                  required
+                />
+              </label>
+              <label class="field">
+                <span>상세 주소</span>
+                <input
+                  type="text"
+                  name="addressDetail"
+                  placeholder="동 · 호수"
+                />
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>반려견 정보</legend>
+              <div class="field-row">
+                <label class="field">
+                  <span>이름 <em>*</em></span>
+                  <input type="text" name="dogName" required />
+                </label>
+                <label class="field">
+                  <span>견종</span>
+                  <input type="text" name="breed" placeholder="예: 말티즈" />
+                </label>
+              </div>
+              <div class="field-row">
+                <label class="field">
+                  <span>나이 (살)</span>
+                  <input
+                    type="number"
+                    name="age"
+                    min="0"
+                    max="30"
+                    step="1"
+                    inputmode="numeric"
+                  />
+                </label>
+                <label class="field">
+                  <span>몸무게 (kg)</span>
+                  <input
+                    type="number"
+                    name="weight"
+                    min="0.5"
+                    max="100"
+                    step="0.1"
+                    inputmode="decimal"
+                  />
+                </label>
+              </div>
+              <label class="field">
+                <span>알레르기 · 건강 특이사항</span>
+                <textarea
+                  name="notes"
+                  rows="3"
+                  placeholder="예: 소고기 알레르기, 관절이 약해요"
+                ></textarea>
+              </label>
+              <label class="field">
+                <span>희망 첫 배송일</span>
+                <input type="date" name="startDate" id="startDate" />
+              </label>
+            </fieldset>
+
+            <div class="consent">
+              <label class="check">
+                <input type="checkbox" name="agreePrivacy" required />
+                <span>[필수] 개인정보 수집 · 이용에 동의합니다.</span>
+              </label>
+              <details>
+                <summary>내용 보기</summary>
+                <p>
+                  수집 항목: 이름, 연락처, 이메일, 주소, 반려견 정보<br />
+                  이용 목적: 구독 상담, 상품 배송, 고객 응대<br />
+                  보유 기간: 구독 해지 후 1년 (관계 법령에 따른 보존 기간이 있는
+                  경우 해당 기간)<br />
+                  동의를 거부할 수 있으나, 거부 시 구독 신청이 제한됩니다.
+                </p>
+              </details>
+              <label class="check">
+                <input type="checkbox" name="agreeMarketing" />
+                <span>[선택] 신메뉴 · 이벤트 소식을 문자로 받겠습니다.</span>
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              id="submitBtn"
+            >
+              구독 신청하기
+            </button>
+            <p id="formMessage" class="form-message" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="site-footer">
+      <div class="check-block" aria-hidden="true"></div>
+      <div class="container footer-inner">
+        <div class="brand brand-footer">
+          <svg class="brand-mark" aria-hidden="true">
+            <use href="#logo-mark" />
+          </svg>
+          <span class="brand-text">
+            <strong>오마카개</strong>
+            <small>OMAKAGAE</small>
+          </span>
+        </div>
+        <dl class="company">
+          <div>
+            <dt>상호</dt>
+            <dd>오마카개</dd>
+          </div>
+          <div>
+            <dt>대표</dt>
+            <dd>김기대</dd>
+          </div>
+          <div>
+            <dt>주소</dt>
+            <dd>대구광역시 수성구 상록로 15</dd>
+          </div>
+        </dl>
+        <p class="credits">
+          Photos: Unsplash · Video: Mixkit<br />
+          © 2026 OMAKAGAE. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- 모바일 하단 고정 바 -->
+    <div class="mobile-bar">
+      <div>
+        <small>월 구독료</small>
+        <strong id="mobileTotal"></strong>
+      </div>
+      <a href="#order" class="btn btn-primary btn-sm">신청하기</a>
+    </div>
+  </body>
 </html>

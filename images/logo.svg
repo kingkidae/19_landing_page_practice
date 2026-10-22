@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 72">
+  <g transform="translate(4 4)">
+    <circle cx="32" cy="32" r="32" fill="#3A2A1F"/>
+    <path d="M17 25C10 28 8 41 12 48c6 1 10-6 10-14z" fill="#B0814F"/>
+    <path d="M47 25c7 3 9 16 5 23-6 1-10-6-10-14z" fill="#B0814F"/>
+    <ellipse cx="32" cy="37" rx="13.5" ry="14.5" fill="#F3E3CB"/>
+    <path d="M22 22a5 5 0 0 1 4-8a6 6 0 0 1 12 0a5 5 0 0 1 4 8z" fill="#FFFFFF"/>
+    <rect x="22" y="20.5" width="20" height="4.5" rx="1.2" fill="#FFFFFF" stroke="#3A2A1F" stroke-width=".8"/>
+    <circle cx="27" cy="36" r="1.9" fill="#3A2A1F"/>
+    <circle cx="37" cy="36" r="1.9" fill="#3A2A1F"/>
+    <ellipse cx="32" cy="42" rx="3" ry="2.2" fill="#3A2A1F"/>
+    <path d="M32 44.2v2.3M29 47.5c1.6 1.4 4.4 1.4 6 0" fill="none" stroke="#3A2A1F" stroke-width="1.4" stroke-linecap="round"/>
+  </g>
+  <text x="84" y="40" font-family="'Gowun Batang', 'Nanum Myeongjo', serif" font-size="30" font-weight="700" fill="#3A2A1F" letter-spacing="2">오마카개</text>
+  <text x="86" y="60" font-family="'Cormorant Garamond', Georgia, serif" font-size="12" fill="#8A6440" letter-spacing="5.5">OMAKAGAE · DAEGU</text>
+</svg>
