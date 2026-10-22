@@ -247,6 +247,12 @@ p {
   z-index: 50;
   background: rgba(251, 246, 238, 0.92);
   backdrop-filter: blur(10px);
+  transition: transform 0.35s ease;
+}
+
+/* 스크롤을 내리면 숨김, 올리면 다시 표시 (main.js) */
+.site-header.is-hidden {
+  transform: translateY(-100%);
 }
 
 .header-inner {
@@ -676,6 +682,84 @@ p {
   color: var(--muted);
 }
 
+/* 사료 타입 (건식 / 습식) */
+.food-type {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.food-type-option {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 18px 20px;
+  background: var(--white);
+  border: 1.5px solid var(--linen);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.food-type-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.food-type-option:hover {
+  border-color: var(--camel);
+}
+
+.food-type-option:has(input:checked) {
+  background: var(--espresso);
+  border-color: var(--espresso);
+  color: var(--cream);
+}
+
+.food-type-option:has(input:focus-visible) {
+  outline: 3px solid var(--camel);
+  outline-offset: 2px;
+}
+
+.food-type-name {
+  font-family: var(--serif-ko);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.food-type-desc {
+  font-size: 0.88rem;
+}
+
+.food-type-meta {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--toffee);
+}
+
+.food-type-option:has(input:checked) .food-type-meta {
+  color: var(--camel);
+}
+
+.base-food .base-pack {
+  margin-top: 4px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--espresso);
+}
+
+.shipping-notice {
+  margin: -12px 0 24px;
+  padding: 14px 18px;
+  background: rgba(126, 42, 42, 0.07);
+  border-left: 3px solid var(--burgundy);
+  border-radius: 10px;
+  font-size: 0.86rem;
+  color: var(--espresso);
+}
+
 .base-food .base-spec {
   margin-top: 8px;
   font-size: 0.82rem;
@@ -701,8 +785,8 @@ p {
   flex-direction: column;
   gap: 2px;
   padding: 16px 16px 14px;
-  background: var(--cream);
-  border: 1.5px solid transparent;
+  background: var(--white);
+  border: 1.5px solid var(--linen);
   border-radius: 14px;
   cursor: pointer;
   transition: border-color 0.2s, background-color 0.2s;
@@ -761,6 +845,208 @@ p {
   margin-top: 8px;
   font-size: 0.8rem;
   color: var(--toffee);
+}
+
+/* 건강 상태에 따른 추천 / 주의 표시 */
+.topping .badge {
+  display: none;
+  align-self: flex-start;
+  margin-bottom: 4px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.topping.is-recommended .badge,
+.topping.is-avoid .badge {
+  display: inline-block;
+}
+
+.topping.is-recommended .badge {
+  background: var(--camel-deep);
+  color: var(--white);
+}
+
+.topping.is-avoid .badge {
+  background: rgba(126, 42, 42, 0.12);
+  color: var(--burgundy);
+}
+
+.topping.is-avoid:has(input:checked) {
+  border-color: var(--burgundy);
+}
+
+/* ===== Step 2: Health ===== */
+.health-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.health-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.health-option {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 18px 18px 16px;
+  background: var(--white);
+  border: 1.5px solid var(--linen);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s, transform 0.2s;
+}
+
+.health-option:hover {
+  border-color: var(--camel);
+  transform: translateY(-2px);
+}
+
+.health-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.health-option strong {
+  font-family: var(--serif-ko);
+  font-size: 1.05rem;
+}
+
+.health-option small {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.health-option .factor {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--toffee);
+}
+
+.health-option:has(input:checked) {
+  background: var(--espresso);
+  border-color: var(--espresso);
+  color: var(--cream);
+}
+
+.health-option:has(input:checked) strong {
+  color: var(--white);
+}
+
+.health-option:has(input:checked) small,
+.health-option:has(input:checked) .factor {
+  color: var(--camel);
+}
+
+.health-option:has(input:focus-visible) {
+  outline: 3px solid var(--camel);
+  outline-offset: 2px;
+}
+
+.health-panel {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  padding: 30px 28px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.health-kcal {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
+  margin-bottom: 22px;
+  background: var(--cream);
+  border-left: 4px solid var(--camel-deep);
+  border-radius: 10px;
+}
+
+.health-kcal span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.health-kcal strong {
+  font-family: var(--serif-ko);
+  font-size: 1.8rem;
+  color: var(--ink);
+}
+
+.health-kcal small {
+  font-size: 0.82rem;
+  color: var(--toffee);
+}
+
+.health-block {
+  margin-bottom: 16px;
+}
+
+.health-block h3 {
+  margin-bottom: 8px;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip-row li {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--sand);
+  font-size: 0.85rem;
+}
+
+#healthRecommend li {
+  background: var(--camel-deep);
+  color: var(--white);
+}
+
+#healthAvoid li {
+  background: rgba(126, 42, 42, 0.1);
+  color: var(--burgundy);
+}
+
+.chip-row li.empty,
+#healthRecommend li.empty,
+#healthAvoid li.empty {
+  background: none;
+  padding-left: 0;
+  color: var(--muted);
+}
+
+.health-tips {
+  margin: 4px 0 22px;
+  padding: 16px 0 0 18px;
+  border-top: 1px solid var(--sand);
+  font-size: 0.86rem;
+  color: var(--espresso);
+}
+
+.health-tips li + li {
+  margin-top: 6px;
+}
+
+.health-disclaimer {
+  margin-top: 12px;
+  font-size: 0.76rem;
+  color: var(--muted);
 }
 
 .nutrition-panel {
@@ -1633,8 +1919,14 @@ legend {
     grid-column: 1 / -1;
   }
 
-  .topping-list {
+  .topping-list,
+  .health-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .health-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 }
 
@@ -1700,8 +1992,13 @@ legend {
   }
 
   .nutrition-panel,
+  .health-panel,
   .summary {
     position: static;
+  }
+
+  .health-grid {
+    grid-template-columns: 1fr;
   }
 
   .order-form {
