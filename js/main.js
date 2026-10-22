@@ -56,7 +56,7 @@ const TREATS = {
 const TREAT_MAX_COUNT = 10;
 
 // 건강 상태별 열량 조절 비율과 추천 / 주의 토핑 (일반적인 영양 가이드 기준)
-// 여러 개를 고르면 가장 낮은 열량 비율을 적용
+// 여러 개를 고르면 열량 비율이 누적 적용됨 (healthFactor 참고)
 const HEALTH = [
   { id: "healthy", name: "건강해요", desc: "특별한 질환 없음", factor: 1, recommend: [], avoid: [], tip: "" },
   {
@@ -127,7 +127,10 @@ const gramsForKcal = (kcal, food = currentFood()) => kcal / (food.per100.kcal / 
 
 // 건강 상태
 const selectedHealth = () => HEALTH.filter((h) => state.health.has(h.id));
-const healthFactor = () => Math.min(1, ...selectedHealth().map((h) => h.factor));
+// 여러 항목을 고르면 감소율이 누적(곱셈)되되, 과도한 감량을 막기 위해 최대 40%까지만 낮춤
+const MIN_HEALTH_FACTOR = 0.6;
+const healthFactor = () =>
+  Math.max(MIN_HEALTH_FACTOR, selectedHealth().reduce((product, h) => product * h.factor, 1));
 const avoidedToppings = () => new Set(selectedHealth().flatMap((h) => h.avoid));
 
 // 여러 질환에 공통으로 추천되는 토핑을 우선, 주의 토핑은 제외하고 최대 3개
@@ -294,7 +297,8 @@ function renderHealth() {
   const cut = Math.round((1 - healthFactor()) * 100);
   $("#healthKcal").textContent = `${num(need, 0)} kcal`;
   $("#healthKcalNote").textContent = cut
-    ? `${SIZES[state.size].label} 표준 ${num(standard, 0)}kcal에서 ${cut}% 낮췄어요 · 하루 ${dailyGrams(state.size)}g`
+    ? `${SIZES[state.size].label} 표준 ${num(standard, 0)}kcal에서 ${cut}% 낮췄어요 · 하루 ${dailyGrams(state.size)}g` +
+      (healthFactor() === MIN_HEALTH_FACTOR ? " (최대 감량폭 40% 적용)" : "")
     : `${SIZES[state.size].label} 표준 열량 그대로예요 · 하루 ${dailyGrams(state.size)}g`;
 
   $("#healthRecommend").innerHTML = chips(recommendedToppings(), "원하는 토핑을 자유롭게 골라주세요");
