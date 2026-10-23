@@ -1,0 +1,43 @@
+# 오마카개 robots.txt
+# 검색엔진(구글 · 네이버 · 빙 · 다음)과 AI 검색 · 답변 서비스 크롤러의 수집을 허용합니다.
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Daumoa
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://kingkidae.github.io/19_landing_page_practice/sitemap.xml
